@@ -1,0 +1,38 @@
+.tab-box {
+  border: black 2px solid;
+  padding: 50px;
+  background-color: #0275d8;
+  margin-top: -10px;
+}
+
+.claimForm{
+  text-align:left;
+}
+
+.tabs {
+  color: white;
+  border-width: 0px !important;
+}
+
+.nav-link {
+  color:white !important;
+  border-top-right-radius: 5px !important;
+  border-top-left-radius: 5px !important;
+}
+
+.nav-item {
+  border-style: solid;
+  border-width: 1px;
+  border-top-right-radius: 5px !important;
+  border-top-left-radius: 5px !important;
+}
+
+.nav-link.active {
+  background-color: #0d6efd  !important;
+}
+
+.tab-list-active {
+  background-color:#002171;
+  border: solid black;
+  border-width: 2px 2px 0 2px;
+}

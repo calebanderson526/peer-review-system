@@ -1,0 +1,61 @@
+{
+  "name": "review-ui",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@semaphore-protocol/group": "^3.0.0",
+    "@semaphore-protocol/identity": "^3.0.0",
+    "@semaphore-protocol/proof": "^3.0.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "bootstrap": "^5.2.1",
+    "browserify-fs": "^1.0.0",
+    "bs58": "^5.0.0",
+    "buffer": "^6.0.3",
+    "fs": "^0.0.1-security",
+    "iframe-resizer-react": "^1.1.0",
+    "ipfs-http-client": "^58.0.1",
+    "node-polyfill-webpack-plugin": "^2.0.1",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.5.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.2",
+    "react-scripts": "^5.0.1",
+    "react-tabs": "^5.1.0",
+    "recharts": "^2.4.3",
+    "source-map-explorer": "^2.5.3",
+    "web-vitals": "^2.1.4",
+    "web3": "^1.8.0"
+  },
+  "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "browser": {
+    "fs": false,
+    "os": false,
+    "path": false
+  }
+}

@@ -1,0 +1,44 @@
+.card{
+    color: black;
+}
+
+.card-Header {
+    background-color: #0d47a1;
+}
+
+.butt{
+    padding: 10px;
+}
+
+.passed {
+    border:1px #198754 solid;
+    border-radius: 25px;
+    color: #198754;
+    padding: 5px;
+}
+.open {
+    border:1px #0dcaf0 solid;
+    border-radius: 25px;
+    color: #0dcaf0;
+    padding: 5px;
+}
+
+.close {
+    border:1px #dc3545 solid;
+    border-radius: 25px;
+    color: #dc3545;
+    padding: 5px;
+}
+
+.failed {
+    border:1px #FFC107 solid;
+    border-radius: 25px;
+    color: #FFC107;
+    padding: 5px;
+}
+button:disabled,
+button[disabled]{
+    color: #D3D3D3 !important;
+    border: solid 1px #D3D3D3 !important;
+}
+

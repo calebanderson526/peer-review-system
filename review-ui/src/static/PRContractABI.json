@@ -1,0 +1,1507 @@
+[
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "semaphoreAddress",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "admin",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      }
+    ],
+    "name": "AdminAdded",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "revoked",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "sender",
+        "type": "address"
+      }
+    ],
+    "name": "AdminRevoked",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "author",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "editor",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "reviewers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "article_link",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "review_links",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "open",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "passed",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "gen_time",
+            "type": "uint256"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct PeerReview.Bounty",
+        "name": "bounty",
+        "type": "tuple"
+      }
+    ],
+    "name": "BountyCancelled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "author",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "editor",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "reviewers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "article_link",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "review_links",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "open",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "passed",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "gen_time",
+            "type": "uint256"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct PeerReview.Bounty",
+        "name": "bounty",
+        "type": "tuple"
+      }
+    ],
+    "name": "BountyClaimed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "author",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "editor",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "reviewers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "article_link",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "review_links",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "open",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "passed",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "gen_time",
+            "type": "uint256"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct PeerReview.Bounty",
+        "name": "bounty",
+        "type": "tuple"
+      }
+    ],
+    "name": "BountyClosed",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "author",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "editor",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "reviewers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "article_link",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "review_links",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "open",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "passed",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "gen_time",
+            "type": "uint256"
+          }
+        ],
+        "indexed": false,
+        "internalType": "struct PeerReview.Bounty",
+        "name": "bounty",
+        "type": "tuple"
+      }
+    ],
+    "name": "BountyOpened",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "MAX_EDITOR_FEE",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "MAX_PLATFORM_FEE",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_account",
+        "type": "address"
+      }
+    ],
+    "name": "addAdmin",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_bountyId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address[]",
+        "name": "reviewers",
+        "type": "address[]"
+      }
+    ],
+    "name": "addReviewersToBounty",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "author",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "editor",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "reviewers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "article_link",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "review_links",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "open",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "passed",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "gen_time",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct PeerReview.Bounty",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "addressToReputation",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "allBounties",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "author",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "editor",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "reviewers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "article_link",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "review_links",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "open",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "passed",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "gen_time",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct PeerReview.Bounty[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "allIdentities",
+    "outputs": [
+      {
+        "internalType": "uint256[]",
+        "name": "",
+        "type": "uint256[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "bounties",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "id",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "author",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "editor",
+        "type": "address"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "article_link",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "address",
+        "name": "token",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "open",
+        "type": "bool"
+      },
+      {
+        "internalType": "bool",
+        "name": "passed",
+        "type": "bool"
+      },
+      {
+        "internalType": "uint256",
+        "name": "gen_time",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_bountyId",
+        "type": "uint256"
+      }
+    ],
+    "name": "cancelBounty",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "author",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "editor",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "reviewers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "article_link",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "review_links",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "open",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "passed",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "gen_time",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct PeerReview.Bounty",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_bountyId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_review_link",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "identityCommitment",
+        "type": "uint256"
+      }
+    ],
+    "name": "claimBounty",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "author",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "editor",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "reviewers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "article_link",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "review_links",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "open",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "passed",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "gen_time",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct PeerReview.Bounty",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "bytes32",
+        "name": "greeting",
+        "type": "bytes32"
+      },
+      {
+        "internalType": "uint256",
+        "name": "merkleTreeRoot",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "nullifierHash",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256[8]",
+        "name": "proof",
+        "type": "uint256[8]"
+      }
+    ],
+    "name": "claimReputation",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_bountyId",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "passed",
+        "type": "bool"
+      }
+    ],
+    "name": "closeBounty",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "author",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "editor",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "reviewers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "article_link",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "review_links",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "open",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "passed",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "gen_time",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct PeerReview.Bounty",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "editorFeeBasisPoints",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "feeReceiver",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_bountyId",
+        "type": "uint256"
+      }
+    ],
+    "name": "forceCancelBounty",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "author",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "editor",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "reviewers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "article_link",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "review_links",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "open",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "passed",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "gen_time",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct PeerReview.Bounty",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_account",
+        "type": "address"
+      }
+    ],
+    "name": "getBountiesByAuthor",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "author",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "editor",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "reviewers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "article_link",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "review_links",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "open",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "passed",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "gen_time",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct PeerReview.Bounty[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_account",
+        "type": "address"
+      }
+    ],
+    "name": "getBountiesByEditor",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "author",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "editor",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "reviewers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "article_link",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "review_links",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "open",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "passed",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "gen_time",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct PeerReview.Bounty[]",
+        "name": "",
+        "type": "tuple[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_account",
+        "type": "address"
+      }
+    ],
+    "name": "getBountiesByReviewer",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "author",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "editor",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "reviewers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "article_link",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "review_links",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "open",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "passed",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "gen_time",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct PeerReview.Bounty[]",
+        "name": "",
+        "type": "tuple[]"
+      },
+      {
+        "internalType": "bool[]",
+        "name": "",
+        "type": "bool[]"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_bountyId",
+        "type": "uint256"
+      }
+    ],
+    "name": "getBounty",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "author",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "editor",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "reviewers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "article_link",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "review_links",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "open",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "passed",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "gen_time",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct PeerReview.Bounty",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "hasReviewedGroupId",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "identities",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_token",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_editor",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bytes32",
+        "name": "_article_link",
+        "type": "bytes32"
+      }
+    ],
+    "name": "openBounty",
+    "outputs": [
+      {
+        "components": [
+          {
+            "internalType": "uint256",
+            "name": "id",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "author",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "editor",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "reviewers",
+            "type": "address[]"
+          },
+          {
+            "internalType": "bytes32",
+            "name": "article_link",
+            "type": "bytes32"
+          },
+          {
+            "internalType": "bytes32[]",
+            "name": "review_links",
+            "type": "bytes32[]"
+          },
+          {
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "bool",
+            "name": "open",
+            "type": "bool"
+          },
+          {
+            "internalType": "bool",
+            "name": "passed",
+            "type": "bool"
+          },
+          {
+            "internalType": "uint256",
+            "name": "gen_time",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct PeerReview.Bounty",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "platformFeeBasisPoints",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "recoverNative",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_tokenAddress",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "recoverTokens",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_account",
+        "type": "address"
+      }
+    ],
+    "name": "revokeAdmin",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "semaphore",
+    "outputs": [
+      {
+        "internalType": "contract ISemaphore",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_fee",
+        "type": "uint256"
+      }
+    ],
+    "name": "setEditorFee",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_fee",
+        "type": "uint256"
+      }
+    ],
+    "name": "setPlatformFee",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
